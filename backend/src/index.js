@@ -9,8 +9,10 @@ const userRoute = require("./routes/users")
 const authRoute = require("./routes/auth")
 
 dotenv.config()
+const mongoLink = 'mongodb://db:27017/<db>'
+// process.env.MONGO_URI
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(mongoLink, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("DB Connection Successfull!"))
   .catch((error) => {
     console.error(error)
