@@ -39,7 +39,7 @@ services:
     command: /usr/app/node_modules/.bin/nodemon -L src/index.js
 
   db:
-    image: mongo:3.6.19-xenial
+    image: mongo:4.0.16-xenial
     ports:
       - 27017:27017
     networks:
