@@ -1,38 +1,389 @@
-.App {
-  text-align: center;
+:root {
+  --primary-site-color: rgba(65, 65, 65, 1);
+  --secondary-site-color: rgba(229, 137, 41, 1);
+
+  --primary-site-color-shaded: rgba(76, 76, 76, 1);
+  --secondary-site-color-shaded: rgba(198, 109, 17, 1);
+
+  --primary-font-color: rgba(255, 255, 255, 1);
+  --secondary-font-color: rgba(0, 0, 0, 1);
+  --tertiary-font-color: rgba(181, 181, 181, 1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html::-webkit-scrollbar {
+  display: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: var(--primary-site-color);
+  color: var(--primary-font-color);
+  word-wrap: break-word;
+}
+
+p {
+  margin: 0;
+}
+
+/* a {
+  text-decoration: none;
+  color: var(--primary-font-color);
+  transition: color 0.1s ease-in-out;
+}
+
+a:hover {
+  color: var(--secondary-site-color);
+} */
+
+
+/* LandingPage */
+
+.landing-page {
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.landing-page .page-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.landing-page .page-section#front-page {
+  height: calc(100vh - 100px);
+  padding: 50px 0;
+  text-align: center;
+}
+
+.landing-page .page-section .section-heading {
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2ch;
+}
+
+.landing-page .page-section .site-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-page .page-section .site-logo .logo-img {
+  max-width: 200px;
+  max-height: 200px;
+  margin-right: 25px;
+}
+
+.landing-page .page-section .site-logo .logo-text {
+  font-family: monospace;
+  font-size: 4rem;
+  letter-spacing: 0.1ch;
+  color: var(--secondary-site-color);
+}
+
+.landing-page .page-section .section-subheading {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: var(--tertiary-font-color);
+  letter-spacing: 0.3ch;
+  font-weight: 500;
+}
+
+.landing-page .page-section .play-button {
+  background-color: var(--secondary-site-color);
+  color: var(--primary-font-color);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.2ch;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px 40px;
+  width: 60%;
+  max-width: 500px;
+  max-height: 80px;
+  border: none;
+  border-radius: 7px;
+  transition: all 0.15s ease-in-out;
+}
+
+.landing-page .page-section .play-button:hover {
+  background-color: var(--secondary-site-color-shaded);
+  cursor: pointer;
+}
+
+.landing-page .page-section .game-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 80%;
+}
+
+.landing-page .page-section .game-info .item {
+  display: flex;
+  flex-direction: column;
+  color: var(--primary-font-color);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.15ch;
+  margin: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.landing-page .page-section .game-info .item img {
+  max-width: 150px;
+  max-height: 150px;
+  margin-top: 25px;
+}
+
+.landing-page .page-section .bank-info {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+}
+
+.landing-page .page-section .bank-info .item {
+  padding: 15px;
+  background-color: var(--primary-site-color-shaded);
+  color: var(--secondary-site-color-shaded);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1ch;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 5px;
+  border-radius: 7px;
+  align-items: center;
+}
+
+.landing-page .page-section .bank-info .item p:nth-of-type(2) {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+
+/* Navbar */
+
+.displayNone {
+  display: none;
+}
+
+.goAway {
+  width: 0vw !important;
+}
+
+.header-push {
+  height: 5vh;
+}
+
+.aboveThemAll {
+  z-index: 5 !important;
+}
+
+.belowThemAll {
+  z-index: -1 !important;
+}
+
+.stick {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.nav-mobile {
+  height: 50px;
+}
+
+.navbar-header {
+  /*  */
+}
+
+.nav-desktop {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-desktop .nav-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1ch;
+  white-space: nowrap;
+  text-indent: 10px;
+}
+
+.nav-desktop .nav-logo a {
+  color: var(--secondary-site-color);
+  text-decoration: none;
+}
+
+.nav-desktop .nav-logo .logo-img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.nav-desktop .nav-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-desktop .nav-list div {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-desktop .nav-list div .item {
+  display: flex;
+  flex-direction: row;
+  margin: 0 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.2ch;
+  align-items: center;
+  text-indent: 5px;
+  color: var(--primary-font-color);
+  transition: color 0.1s ease-in-out;
+}
+
+.nav-desktop .nav-list div .item:hover {
+  color: var(--secondary-site-color);
+}
+
+
+
+.nav-mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px 10px 10px;
+}
+
+.nav-mobile .left {
+  /*  */
+}
+
+.nav-mobile .left .nav-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--secondary-site-color);
+  font-size: 7vw;
+  font-weight: 700;
+  text-indent: 1rem;
+  letter-spacing: 0.1ch;
+}
+
+.nav-mobile .left .nav-logo .logo-img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.nav-mobile .right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--primary-site-color-shaded);
 }
 
-.App-link {
-  color: #61dafb;
+.nav-mobile .right svg {
+  stroke: var(--secondary-site-color);
+  transition: all 0.1s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.icon-rotate svg {
+  transform: rotate(-90deg);
+}
+
+.navbar .mobileNavFullScreen {
+  height: 100%;
+}
+
+.mobileNavFullScreen .nav-menu {
+  width: 100vw;
+  height: calc(100vh - 50px);
+  background-color: var(--primary-site-color-shaded);
+  border-radius: 0 25px 0px 0;
+  transition: width 1s ease-in-out;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  position: fixed;
+  overflow: hidden;
+  margin-top: 5vh;
+}
+
+.mobileNavFullScreen .nav-menu .nav-list {
+  display: flex;
+  flex-direction: column;
+  margin: 5vh 0;
+  margin-left: 30vw;
+}
+
+.mobileNavFullScreen .nav-menu .nav-list .item {
+  margin: 15px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.1ch;
+}
+
+
+
+@media screen and (min-width: 768px) {
+  .nav-mobile, .nav-mobile > * {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  .mobileNavFullScreen, .mobileNavFullScreen > * {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* LandingPage */
+  .page-section#front-page {
+    width: 90%;
+  }
+
+  .landing-page .page-section .game-info {
+    flex-direction: column;
+    margin: 10vh 0;
+  }
+
+  .landing-page .page-section .bank-info {
+    flex-direction: column;
+  }
+
+  .landing-page .page-section .site-logo .logo-img {
+    margin-right: 0;
+  }
+
+  /* Navbar */
+  .nav-desktop {
+    display: none;
   }
 }

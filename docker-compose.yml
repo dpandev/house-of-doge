@@ -2,6 +2,7 @@ version: "3"
 services:
 
   frontend:
+    container_name: hod-frontend
     build: 
       context: ./frontend
       dockerfile: Dockerfile
@@ -10,35 +11,37 @@ services:
     networks:
       - mern-network
     volumes:
-      - ./frontend/src:/usr/app/src
-      - ./frontend/public:/usr/app/public
+      - ./frontend/src:/frontend/src
+      - ./frontend/public:/frontend/public
     depends_on:
       - backend
     environment:
-      - REACT_APP_SERVER=http://localhost:5000
+      - REACT_APP_SERVER=http://localhost:8800
       - CHOKIDAR_USEPOLLING=true
-    command: npm start
+    command: npm run start
     stdin_open: true
     tty: true
   
   backend:
+    container_name: hod-backend
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - 5000:5000
+      - 8800:8800
     networks:
       - mern-network
     volumes:
-      - ./backend/src:/usr/app/src
+      - ./backend/src:/backend/src
     depends_on:
       - db
     environment:
       - MONGO_URL=mongodb://db:27017
       - CLIENT=http://localhost:3000
-    command: /usr/app/node_modules/.bin/nodemon -L src/index.js
+    command: /backend/node_modules/.bin/nodemon -L src/index.js
 
   db:
+    container_name: hod-db
     image: mongo:4.0.16-xenial
     ports:
       - 27017:27017
